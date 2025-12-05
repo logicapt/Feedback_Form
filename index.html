@@ -164,8 +164,8 @@
     .footer-social a {
       border: 2px solid var(--primary-color);
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      width: 44px;
+      height: 44px;
       display: inline-flex;
       justify-content: center;
       align-items: center;
@@ -202,7 +202,7 @@
       
       footer {
         padding: 40px 0 20px 0;
-        margin-top: 50px;
+        margin-top: 70px;
       }
       .btn-edit-response {
         padding: 10px 26px;
@@ -233,62 +233,6 @@
         box-shadow: 0 0 0 3px rgba(255, 127, 39, 0.35);
       }
     }
-    /* ============================
-   METALLIC 3D TRIANGLE LOADER
-   ============================ */
-.triangle-loader {
-  width: 85px;
-  height: 85px;
-  margin: 25px auto;
-  position: relative;
-  animation: spin3D 2.2s linear infinite;
-  transform-style: preserve-3d;
-}
-
-.triangle-loader:before {
-  content: "";
-  width: 0;
-  height: 0;
-  border-left: 42px solid transparent;
-  border-right: 42px solid transparent;
-
-  /* Metallic shaded triangle */
-  border-bottom: 75px solid #d6d6d6;
-  display: block;
-
-  background: linear-gradient(
-    135deg,
-    #ffffff 0%,
-    #e6e6e6 20%,
-    #b5b5b5 45%,
-    #8b8b8b 60%,
-    #e0e0e0 80%,
-    #9b9b9b 100%
-  );
-
-  background-size: 300% 300%;
-  animation: metallicShine 3.5s ease-in-out infinite;
-  filter: brightness(1.25) contrast(1.15);
-}
-
-@keyframes metallicShine {
-  0%   { filter: brightness(1.6); }
-  50%  { filter: brightness(0.85); }
-  100% { filter: brightness(1.6); }
-}
-
-@keyframes spin3D {
-  0% {
-    transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg);
-  }
-  50% {
-    transform: rotateX(180deg) rotateY(90deg) rotateZ(180deg);
-  }
-  100% {
-    transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
-  }
-}
-
   </style>
 
 </head>
@@ -504,7 +448,7 @@
       </div>
 
       <p class="mb-2">
-    <em>**Note:** 1 indicates the lowest rating and 5 indicates the highest rating.</em>
+    <em>**Note: 1 indicates the lowest rating, and 5 indicates the highest rating.**</em>
     </p>
 
       <!-- COMMENTS -->
@@ -779,8 +723,7 @@ function displayProjectData(project) {
     headingText = title || patent || "Unnamed Project";
   } else if (
     type.includes("invalidation") || type.includes("invalidity") || type.includes("opposition") ||
-    type.includes("infringement") || type.includes("infringment") ||
-    type.includes("freedom") || type.includes("f-to-operate") || type.includes("clearance")
+    type.includes("infringement") || type.includes("infringment") || type.includes("clearance")
   ) {
     headingText = patent || title || "Unnamed Project";
   } else {
@@ -815,8 +758,7 @@ function generateProjectParagraph(project) {
       <p><strong>Project Details:</strong><br>
       Project Code: ${escapeHtml(code)}<br>
       Client Code: ${escapeHtml(client)}<br>
-      Type: Patentability Search<br>
-      Project Title: ${escapeHtml(title)}${patent ? `<br>Patent Number: ${escapeHtml(patent)}` : ""}</p>
+      Type: Patentability Search<br></p>
 
       <p>Thank you for your valuable partnership.</p>
     `;
@@ -829,7 +771,7 @@ function generateProjectParagraph(project) {
       Client Code: ${escapeHtml(client)}<br>
       Type: Invalidation Search<br>
       Project Title: ${escapeHtml(title)}<br>
-      Patent Number: ${escapeHtml(patent)}</p>
+      </p>
       
       <p>Thank you for trusting our expertise.</p>
     `;
@@ -843,14 +785,13 @@ function generateProjectParagraph(project) {
       Client Code: ${escapeHtml(client)}<br>
       Type: Infringement Study<br>
       Project Title: ${escapeHtml(title)}<br>
-      Patent Number: ${escapeHtml(patent)}<br>
       Product Name: ${escapeHtml(product)}</p>
 
       <p>We appreciate your continued collaboration.</p>
     `;
   } else {
     return `
-      <p>Thank you for collaborating with us on this project.<br>
+      <p>Thank you for collaborating with us on this search.<br>
         Your feedback helps us improve our services and deliver better results.</p>
       <p><strong>Project Details:</strong><br>
       Project Code: ${escapeHtml(code)}<br>
