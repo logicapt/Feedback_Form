@@ -1,4 +1,3 @@
-<!-- Developed by Vaibhav Gupta (Patent Analyst)-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -358,33 +357,33 @@
         </div>
       </div>
 
-      <!-- VALUE FOR MONEY -->
+      <!-- REPORTING  -->
       <div class="row mb-3">
-        <div class="col-md-4 fw-bold">Value for Money: <span class="text-danger">*</span></div>
+        <div class="col-md-4 fw-bold">Reporting: <span class="text-danger">*</span></div>
         <div class="col-md-8">
           <div class="rating-group">
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="valueForMoney" id="valueForMoney1" value="1" required>
-              <label class="form-check-label" for="valueForMoney1">1</label>
+              <input class="form-check-input" type="radio" name="Reporting" id="Reporting1" value="1" required>
+              <label class="form-check-label" for="Reporting1">1</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="valueForMoney" id="valueForMoney2" value="2">
-              <label class="form-check-label" for="valueForMoney2">2</label>
+              <input class="form-check-input" type="radio" name="Reporting" id="Reporting2" value="2">
+              <label class="form-check-label" for="Reporting2">2</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="valueForMoney" id="valueForMoney3" value="3">
-              <label class="form-check-label" for="valueForMoney3">3</label>
+              <input class="form-check-input" type="radio" name="Reporting" id="Reporting3" value="3">
+              <label class="form-check-label" for="Reporting3">3</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="valueForMoney" id="valueForMoney4" value="4">
-              <label class="form-check-label" for="valueForMoney4">4</label>
+              <input class="form-check-input" type="radio" name="Reporting" id="Reporting4" value="4">
+              <label class="form-check-label" for="Reporting4">4</label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="valueForMoney" id="valueForMoney5" value="5">
-              <label class="form-check-label" for="valueForMoney5">5</label>
+              <input class="form-check-input" type="radio" name="Reporting" id="Reporting5" value="5">
+              <label class="form-check-label" for="Reporting5">5</label>
             </div>
           </div>
-          <div class="error-message" id="valueForMoneyError">Please provide a value for money rating</div>
+          <div class="error-message" id="ReportingError">Please provide a reporting rating</div>
         </div>
       </div>
 
@@ -649,7 +648,7 @@ function validateForm() {
   const required = [
     "searchQuality",
     "turnaroundTime",
-    "valueForMoney",
+    "reporting",
     "responsiveness",
     "overallRating"
   ];
@@ -690,7 +689,7 @@ async function submitFeedback(formData, projectData) {
       projectCode: String(projectData.project_code),
       searchQuality: String(formData.searchQuality),
       turnaroundTime: String(formData.turnaroundTime),
-      valueForMoney: String(formData.valueForMoney),
+      reporting: String(formData.reporting),
       responsiveness: String(formData.responsiveness),
       overallRating: String(formData.overallRating),
       comments: String(formData.comments || "")
@@ -821,7 +820,7 @@ function editResponse() {
 async function loadProjectData() {
   const urlProject = parseProjectFromUrl();
   if (!urlProject) {
-    showError('Sorry No project specified. Please Contact LogicApt Team'), true);
+    showError('No project specified. Use: ?p=/clientCode/projectCode (example: ?p=/367474/25408)', true);
     return;
   }
 
@@ -842,7 +841,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const formData = {
       searchQuality:   document.querySelector('input[name="searchQuality"]:checked').value,
       turnaroundTime:  document.querySelector('input[name="turnaroundTime"]:checked').value,
-      valueForMoney:   document.querySelector('input[name="valueForMoney"]:checked').value,
+      reporting:   document.querySelector('input[name="reporting"]:checked').value,
       responsiveness:  document.querySelector('input[name="responsiveness"]:checked').value,
       overallRating:   document.querySelector('input[name="overallRating"]:checked').value,
       comments:        document.getElementById("comments").value
@@ -868,7 +867,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </body>
 </html>
-
-
-
-
